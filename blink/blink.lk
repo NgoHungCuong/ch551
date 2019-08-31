@@ -1,0 +1,18 @@
+-muwx
+-i blink.ihx
+-M
+-Y
+-X 0x0200
+-b HOME = 0x0000
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k /usr/bin/../share/sdcc/lib/small
+-k /usr/share/sdcc/lib/small
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+obj/main.rel
+
+-e
