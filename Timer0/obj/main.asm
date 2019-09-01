@@ -1,6 +1,7 @@
 ;--------------------------------------------------------
 ; File Created by SDCC : free open source ANSI-C Compiler
-; Version 3.9.0 #11195 (MINGW64)
+; Version 3.5.0 #9253 (Mar 24 2016) (Linux)
+; This file was generated Sun Sep  1 08:04:57 2019
 ;--------------------------------------------------------
 	.module main
 	.optsdcc -mmcs51 --model-small
@@ -241,8 +242,6 @@
 	.globl _B
 	.globl _ACC
 	.globl _PSW
-	.globl _u8Led
-	.globl _Timer0_ISR
 	.globl _TIM0_Init
 	.globl _Delay_Ms
 ;--------------------------------------------------------
@@ -496,8 +495,6 @@ _UIF_BUS_RST	=	0x00d8
 ; internal ram data
 ;--------------------------------------------------------
 	.area DSEG    (DATA)
-_u8Led::
-	.ds 1
 ;--------------------------------------------------------
 ; overlayable items in internal ram 
 ;--------------------------------------------------------
@@ -554,9 +551,6 @@ __start__stack:
 	.area HOME    (CODE)
 __interrupt_vect:
 	ljmp	__sdcc_gsinit_startup
-	reti
-	.ds	7
-	ljmp	_Timer0_ISR
 ;--------------------------------------------------------
 ; global & static initialisations
 ;--------------------------------------------------------
@@ -570,8 +564,6 @@ __interrupt_vect:
 	.globl __mcs51_genXINIT
 	.globl __mcs51_genXRAMCLEAR
 	.globl __mcs51_genRAMCLEAR
-;	main.c:8: uint8_t u8Led = 0;
-	mov	_u8Led,#0x00
 	.area GSFINAL (CODE)
 	ljmp	__sdcc_program_startup
 ;--------------------------------------------------------
@@ -587,13 +579,13 @@ __sdcc_program_startup:
 ;--------------------------------------------------------
 	.area CSEG    (CODE)
 ;------------------------------------------------------------
-;Allocation info for local variables in function 'Timer0_ISR'
+;Allocation info for local variables in function 'TIM0_Init'
 ;------------------------------------------------------------
-;	main.c:10: void Timer0_ISR(void) __interrupt(INT_NO_TMR0)
+;	main.c:7: void TIM0_Init(void)
 ;	-----------------------------------------
-;	 function Timer0_ISR
+;	 function TIM0_Init
 ;	-----------------------------------------
-_Timer0_ISR:
+_TIM0_Init:
 	ar7 = 0x07
 	ar6 = 0x06
 	ar5 = 0x05
@@ -602,133 +594,101 @@ _Timer0_ISR:
 	ar2 = 0x02
 	ar1 = 0x01
 	ar0 = 0x00
-	push	acc
-;	main.c:12: TH0 = 0xF8;
-	mov	_TH0,#0xf8
-;	main.c:13: TL0 = 0x30;
-	mov	_TL0,#0x30
-;	main.c:14: if (u8Led) {
-	mov	a,_u8Led
-	jz	00102$
-;	main.c:15: u8Led = 0;
-	mov	_u8Led,#0x00
-;	main.c:16: P1 &= ~(1 << 5);
-	anl	_P1,#0xdf
-	sjmp	00104$
-00102$:
-;	main.c:18: u8Led = 1;
-	mov	_u8Led,#0x01
-;	main.c:19: P1 |= (1 << 5);
-	orl	_P1,#0x20
-00104$:
-;	main.c:21: }
-	pop	acc
-	reti
-;	eliminated unneeded mov psw,# (no regs used in bank)
-;	eliminated unneeded push/pop psw
-;	eliminated unneeded push/pop dpl
-;	eliminated unneeded push/pop dph
-;	eliminated unneeded push/pop b
-;------------------------------------------------------------
-;Allocation info for local variables in function 'TIM0_Init'
-;------------------------------------------------------------
-;	main.c:23: void TIM0_Init(void)
-;	-----------------------------------------
-;	 function TIM0_Init
-;	-----------------------------------------
-_TIM0_Init:
-;	main.c:25: TMOD = 0x01;
+;	main.c:9: TMOD = 0x01;
 	mov	_TMOD,#0x01
-;	main.c:26: ET0 = 1;
-;	assignBit
-	setb	_ET0
-;	main.c:27: EA = 1;
-;	assignBit
-	setb	_EA
-;	main.c:28: TH0 = 0xF8;
-	mov	_TH0,#0xf8
-;	main.c:29: TL0 = 0x30;
-	mov	_TL0,#0x30
-;	main.c:30: TR0 = 1;
-;	assignBit
-	setb	_TR0
-;	main.c:31: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'Delay_Ms'
 ;------------------------------------------------------------
 ;u16Delay                  Allocated to registers 
 ;------------------------------------------------------------
-;	main.c:32: void Delay_Ms(uint16_t u16Delay)
+;	main.c:12: void Delay_Ms(uint16_t u16Delay)
 ;	-----------------------------------------
 ;	 function Delay_Ms
 ;	-----------------------------------------
 _Delay_Ms:
 	mov	r6,dpl
 	mov	r7,dph
-;	main.c:34: while (u16Delay--) {
+;	main.c:14: while (u16Delay--) {
 00104$:
 	mov	ar4,r6
 	mov	ar5,r7
 	dec	r6
-	cjne	r6,#0xff,00126$
+	cjne	r6,#0xFF,00122$
 	dec	r7
-00126$:
+00122$:
 	mov	a,r4
 	orl	a,r5
 	jz	00107$
-;	main.c:35: TH0 = 0xF8;
-	mov	_TH0,#0xf8
-;	main.c:36: TL0 = 0x30;
+;	main.c:15: TH0 = 0xF8;
+	mov	_TH0,#0xF8
+;	main.c:16: TL0 = 0x30;
 	mov	_TL0,#0x30
-;	main.c:37: TF0 = 0;
-;	assignBit
+;	main.c:17: TF0 = 0;
 	clr	_TF0
-;	main.c:38: TR0 = 1;
-;	assignBit
+;	main.c:18: TR0 = 1;
 	setb	_TR0
-;	main.c:39: while (!TF0);
+;	main.c:19: while (!TF0);
 00101$:
 	jnb	_TF0,00101$
-;	main.c:40: TR0 = 0;
-;	assignBit
+;	main.c:20: TR0 = 0;
 	clr	_TR0
-;	main.c:41: TF0 = 0;
-;	assignBit
+;	main.c:21: TF0 = 0;
 	clr	_TF0
 	sjmp	00104$
 00107$:
-;	main.c:43: }
 	ret
 ;------------------------------------------------------------
 ;Allocation info for local variables in function 'main'
 ;------------------------------------------------------------
-;	main.c:45: int main(void)
+;	main.c:25: int main(void)
 ;	-----------------------------------------
 ;	 function main
 ;	-----------------------------------------
 _main:
-;	main.c:47: SAFE_MOD = 0x55;
+;	main.c:27: SAFE_MOD = 0x55;
 	mov	_SAFE_MOD,#0x55
-;	main.c:48: SAFE_MOD = 0xAA;
-	mov	_SAFE_MOD,#0xaa
-;	main.c:49: CLOCK_CFG = 0x86;
+;	main.c:28: SAFE_MOD = 0xAA;
+	mov	_SAFE_MOD,#0xAA
+;	main.c:29: CLOCK_CFG = 0x86;
 	mov	_CLOCK_CFG,#0x86
-;	main.c:50: SAFE_MOD = 0x00;
+;	main.c:30: SAFE_MOD = 0x00;
 	mov	_SAFE_MOD,#0x00
-;	main.c:51: P1_MOD_OC &= (1 << 5);
+;	main.c:31: P1_MOD_OC &= (1 << 5);
 	anl	_P1_MOD_OC,#0x20
-;	main.c:52: P1_DIR_PU |= (1 << 5);
+;	main.c:32: P1_DIR_PU |= (1 << 5);
 	orl	_P1_DIR_PU,#0x20
-;	main.c:53: P3_MOD_OC &= ~(1 << 0);
-	anl	_P3_MOD_OC,#0xfe
-;	main.c:54: P3_DIR_PU |= (1 << 0);
+;	main.c:33: P3_MOD_OC &= ~(1 << 0);
+	mov	r7,_P3_MOD_OC
+	mov	a,#0xFE
+	anl	a,r7
+	mov	_P3_MOD_OC,a
+;	main.c:34: P3_DIR_PU |= (1 << 0);
 	orl	_P3_DIR_PU,#0x01
-;	main.c:55: TIM0_Init();
+;	main.c:35: TIM0_Init();
 	lcall	_TIM0_Init
-;	main.c:56: while (1) {
+;	main.c:36: while (1) {
 00102$:
-;	main.c:66: }
+;	main.c:37: P3 |= (1 << 0);
+	orl	_P3,#0x01
+;	main.c:38: P1 |= (1 << 5);
+	orl	_P1,#0x20
+;	main.c:39: Delay_Ms(100);
+	mov	dptr,#0x0064
+	lcall	_Delay_Ms
+;	main.c:40: P3 &= ~(1 << 0);
+	mov	r7,_P3
+	mov	a,#0xFE
+	anl	a,r7
+	mov	_P3,a
+;	main.c:41: P1 &= ~(1 << 5);
+	mov	r7,_P1
+	mov	a,#0xDF
+	anl	a,r7
+	mov	_P1,a
+;	main.c:42: Delay_Ms(100);
+	mov	dptr,#0x0064
+	lcall	_Delay_Ms
 	sjmp	00102$
 	.area CSEG    (CODE)
 	.area CONST   (CODE)

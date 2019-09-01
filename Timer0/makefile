@@ -2,7 +2,7 @@
 #Ngo Hung Cuong
 
 CC = sdcc
-PRJ = blink
+PRJ = timer0
 FLASH_SIZE = 10240
 XRAM_SIZE = 512
 
