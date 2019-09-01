@@ -1,0 +1,24 @@
+-muwx
+-i vnusbisp.ihx
+-M
+-Y
+-X 0x0200
+-b HOME = 0x0000
+-b ISEG = 0x0000
+-b BSEG = 0x0000
+-k /usr/bin/../share/sdcc/lib/small
+-k /usr/share/sdcc/lib/small
+-l mcs51
+-l libsdcc
+-l libint
+-l liblong
+-l libfloat
+obj/main.rel
+obj/callback.rel
+obj/gpio.rel
+obj/icp_n76e003.rel
+obj/spi.rel
+obj/usb.rel
+obj/usbisp.rel
+
+-e

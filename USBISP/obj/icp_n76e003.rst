@@ -1,0 +1,1349 @@
+                                      1 ;--------------------------------------------------------
+                                      2 ; File Created by SDCC : free open source ANSI-C Compiler
+                                      3 ; Version 3.5.0 #9253 (Mar 24 2016) (Linux)
+                                      4 ; This file was generated Sun Sep  1 08:46:29 2019
+                                      5 ;--------------------------------------------------------
+                                      6 	.module icp_n76e003
+                                      7 	.optsdcc -mmcs51 --model-small
+                                      8 	
+                                      9 ;--------------------------------------------------------
+                                     10 ; Public variables in this module
+                                     11 ;--------------------------------------------------------
+                                     12 	.globl ___delay_us
+                                     13 	.globl ___delay_ms
+                                     14 	.globl _UIF_BUS_RST
+                                     15 	.globl _UIF_TRANSFER
+                                     16 	.globl _UIF_SUSPEND
+                                     17 	.globl _UIF_FIFO_OV
+                                     18 	.globl _U_SIE_FREE
+                                     19 	.globl _U_TOG_OK
+                                     20 	.globl _U_IS_NAK
+                                     21 	.globl _ADC_CHAN0
+                                     22 	.globl _ADC_CHAN1
+                                     23 	.globl _CMP_CHAN
+                                     24 	.globl _ADC_START
+                                     25 	.globl _ADC_IF
+                                     26 	.globl _CMP_IF
+                                     27 	.globl _CMPO
+                                     28 	.globl _U1RI
+                                     29 	.globl _U1TI
+                                     30 	.globl _U1RB8
+                                     31 	.globl _U1TB8
+                                     32 	.globl _U1REN
+                                     33 	.globl _U1SMOD
+                                     34 	.globl _U1SM0
+                                     35 	.globl _S0_R_FIFO
+                                     36 	.globl _S0_T_FIFO
+                                     37 	.globl _S0_FREE
+                                     38 	.globl _S0_IF_BYTE
+                                     39 	.globl _S0_IF_FIRST
+                                     40 	.globl _S0_IF_OV
+                                     41 	.globl _S0_FST_ACT
+                                     42 	.globl _CP_RL2
+                                     43 	.globl _C_T2
+                                     44 	.globl _TR2
+                                     45 	.globl _EXEN2
+                                     46 	.globl _TCLK
+                                     47 	.globl _RCLK
+                                     48 	.globl _EXF2
+                                     49 	.globl _CAP1F
+                                     50 	.globl _TF2
+                                     51 	.globl _RI
+                                     52 	.globl _TI
+                                     53 	.globl _RB8
+                                     54 	.globl _TB8
+                                     55 	.globl _REN
+                                     56 	.globl _SM2
+                                     57 	.globl _SM1
+                                     58 	.globl _SM0
+                                     59 	.globl _IT0
+                                     60 	.globl _IE0
+                                     61 	.globl _IT1
+                                     62 	.globl _IE1
+                                     63 	.globl _TR0
+                                     64 	.globl _TF0
+                                     65 	.globl _TR1
+                                     66 	.globl _TF1
+                                     67 	.globl _RXD
+                                     68 	.globl _PWM1_
+                                     69 	.globl _TXD
+                                     70 	.globl _PWM2_
+                                     71 	.globl _AIN3
+                                     72 	.globl _VBUS1
+                                     73 	.globl _INT0
+                                     74 	.globl _TXD1_
+                                     75 	.globl _INT1
+                                     76 	.globl _T0
+                                     77 	.globl _RXD1_
+                                     78 	.globl _PWM2
+                                     79 	.globl _T1
+                                     80 	.globl _UDP
+                                     81 	.globl _UDM
+                                     82 	.globl _TIN0
+                                     83 	.globl _CAP1
+                                     84 	.globl _T2
+                                     85 	.globl _AIN0
+                                     86 	.globl _VBUS2
+                                     87 	.globl _TIN1
+                                     88 	.globl _CAP2
+                                     89 	.globl _T2EX
+                                     90 	.globl _RXD_
+                                     91 	.globl _TXD_
+                                     92 	.globl _AIN1
+                                     93 	.globl _UCC1
+                                     94 	.globl _TIN2
+                                     95 	.globl _SCS
+                                     96 	.globl _CAP1_
+                                     97 	.globl _T2_
+                                     98 	.globl _AIN2
+                                     99 	.globl _UCC2
+                                    100 	.globl _TIN3
+                                    101 	.globl _PWM1
+                                    102 	.globl _MOSI
+                                    103 	.globl _TIN4
+                                    104 	.globl _RXD1
+                                    105 	.globl _MISO
+                                    106 	.globl _TIN5
+                                    107 	.globl _TXD1
+                                    108 	.globl _SCK
+                                    109 	.globl _IE_SPI0
+                                    110 	.globl _IE_TKEY
+                                    111 	.globl _IE_USB
+                                    112 	.globl _IE_ADC
+                                    113 	.globl _IE_UART1
+                                    114 	.globl _IE_PWMX
+                                    115 	.globl _IE_GPIO
+                                    116 	.globl _IE_WDOG
+                                    117 	.globl _PX0
+                                    118 	.globl _PT0
+                                    119 	.globl _PX1
+                                    120 	.globl _PT1
+                                    121 	.globl _PS
+                                    122 	.globl _PT2
+                                    123 	.globl _PL_FLAG
+                                    124 	.globl _PH_FLAG
+                                    125 	.globl _EX0
+                                    126 	.globl _ET0
+                                    127 	.globl _EX1
+                                    128 	.globl _ET1
+                                    129 	.globl _ES
+                                    130 	.globl _ET2
+                                    131 	.globl _E_DIS
+                                    132 	.globl _EA
+                                    133 	.globl _P
+                                    134 	.globl _F1
+                                    135 	.globl _OV
+                                    136 	.globl _RS0
+                                    137 	.globl _RS1
+                                    138 	.globl _F0
+                                    139 	.globl _AC
+                                    140 	.globl _CY
+                                    141 	.globl _UEP1_DMA_H
+                                    142 	.globl _UEP1_DMA_L
+                                    143 	.globl _UEP1_DMA
+                                    144 	.globl _UEP0_DMA_H
+                                    145 	.globl _UEP0_DMA_L
+                                    146 	.globl _UEP0_DMA
+                                    147 	.globl _UEP2_3_MOD
+                                    148 	.globl _UEP4_1_MOD
+                                    149 	.globl _UEP3_DMA_H
+                                    150 	.globl _UEP3_DMA_L
+                                    151 	.globl _UEP3_DMA
+                                    152 	.globl _UEP2_DMA_H
+                                    153 	.globl _UEP2_DMA_L
+                                    154 	.globl _UEP2_DMA
+                                    155 	.globl _USB_DEV_AD
+                                    156 	.globl _USB_CTRL
+                                    157 	.globl _USB_INT_EN
+                                    158 	.globl _UEP4_T_LEN
+                                    159 	.globl _UEP4_CTRL
+                                    160 	.globl _UEP0_T_LEN
+                                    161 	.globl _UEP0_CTRL
+                                    162 	.globl _USB_RX_LEN
+                                    163 	.globl _USB_MIS_ST
+                                    164 	.globl _USB_INT_ST
+                                    165 	.globl _USB_INT_FG
+                                    166 	.globl _UEP3_T_LEN
+                                    167 	.globl _UEP3_CTRL
+                                    168 	.globl _UEP2_T_LEN
+                                    169 	.globl _UEP2_CTRL
+                                    170 	.globl _UEP1_T_LEN
+                                    171 	.globl _UEP1_CTRL
+                                    172 	.globl _UDEV_CTRL
+                                    173 	.globl _USB_C_CTRL
+                                    174 	.globl _TKEY_DATH
+                                    175 	.globl _TKEY_DATL
+                                    176 	.globl _TKEY_DAT
+                                    177 	.globl _TKEY_CTRL
+                                    178 	.globl _ADC_DATA
+                                    179 	.globl _ADC_CFG
+                                    180 	.globl _ADC_CTRL
+                                    181 	.globl _SBAUD1
+                                    182 	.globl _SBUF1
+                                    183 	.globl _SCON1
+                                    184 	.globl _SPI0_SETUP
+                                    185 	.globl _SPI0_CK_SE
+                                    186 	.globl _SPI0_CTRL
+                                    187 	.globl _SPI0_DATA
+                                    188 	.globl _SPI0_STAT
+                                    189 	.globl _PWM_CK_SE
+                                    190 	.globl _PWM_CTRL
+                                    191 	.globl _PWM_DATA1
+                                    192 	.globl _PWM_DATA2
+                                    193 	.globl _T2CAP1H
+                                    194 	.globl _T2CAP1L
+                                    195 	.globl _T2CAP1
+                                    196 	.globl _TH2
+                                    197 	.globl _TL2
+                                    198 	.globl _T2COUNT
+                                    199 	.globl _RCAP2H
+                                    200 	.globl _RCAP2L
+                                    201 	.globl _RCAP2
+                                    202 	.globl _T2MOD
+                                    203 	.globl _T2CON
+                                    204 	.globl _SBUF
+                                    205 	.globl _SCON
+                                    206 	.globl _TH1
+                                    207 	.globl _TH0
+                                    208 	.globl _TL1
+                                    209 	.globl _TL0
+                                    210 	.globl _TMOD
+                                    211 	.globl _TCON
+                                    212 	.globl _XBUS_AUX
+                                    213 	.globl _PIN_FUNC
+                                    214 	.globl _P3_DIR_PU
+                                    215 	.globl _P3_MOD_OC
+                                    216 	.globl _P3
+                                    217 	.globl _P2
+                                    218 	.globl _P1_DIR_PU
+                                    219 	.globl _P1_MOD_OC
+                                    220 	.globl _P1
+                                    221 	.globl _ROM_CTRL
+                                    222 	.globl _ROM_DATA_H
+                                    223 	.globl _ROM_DATA_L
+                                    224 	.globl _ROM_DATA
+                                    225 	.globl _ROM_ADDR_H
+                                    226 	.globl _ROM_ADDR_L
+                                    227 	.globl _ROM_ADDR
+                                    228 	.globl _GPIO_IE
+                                    229 	.globl _IP_EX
+                                    230 	.globl _IE_EX
+                                    231 	.globl _IP
+                                    232 	.globl _IE
+                                    233 	.globl _WDOG_COUNT
+                                    234 	.globl _RESET_KEEP
+                                    235 	.globl _WAKE_CTRL
+                                    236 	.globl _CLOCK_CFG
+                                    237 	.globl _PCON
+                                    238 	.globl _GLOBAL_CFG
+                                    239 	.globl _SAFE_MOD
+                                    240 	.globl _DPH
+                                    241 	.globl _DPL
+                                    242 	.globl _SP
+                                    243 	.globl _B
+                                    244 	.globl _ACC
+                                    245 	.globl _PSW
+                                    246 	.globl _ICP_Send
+                                    247 	.globl _ICP_Recv
+                                    248 	.globl _ICP_Init
+                                    249 	.globl _ICP_Enter
+                                    250 	.globl _ICP_Write
+                                    251 	.globl _ICP_Read
+                                    252 	.globl _ICP_SetWire
+                                    253 	.globl _ICP_Exit
+                                    254 	.globl _ICP_FlashWrite
+                                    255 	.globl _ICP_FlashRead
+                                    256 ;--------------------------------------------------------
+                                    257 ; special function registers
+                                    258 ;--------------------------------------------------------
+                                    259 	.area RSEG    (ABS,DATA)
+      000000                        260 	.org 0x0000
+                           0000D0   261 _PSW	=	0x00d0
+                           0000E0   262 _ACC	=	0x00e0
+                           0000F0   263 _B	=	0x00f0
+                           000081   264 _SP	=	0x0081
+                           000082   265 _DPL	=	0x0082
+                           000083   266 _DPH	=	0x0083
+                           0000A1   267 _SAFE_MOD	=	0x00a1
+                           0000B1   268 _GLOBAL_CFG	=	0x00b1
+                           000087   269 _PCON	=	0x0087
+                           0000B9   270 _CLOCK_CFG	=	0x00b9
+                           0000A9   271 _WAKE_CTRL	=	0x00a9
+                           0000FE   272 _RESET_KEEP	=	0x00fe
+                           0000FF   273 _WDOG_COUNT	=	0x00ff
+                           0000A8   274 _IE	=	0x00a8
+                           0000B8   275 _IP	=	0x00b8
+                           0000E8   276 _IE_EX	=	0x00e8
+                           0000E9   277 _IP_EX	=	0x00e9
+                           0000C7   278 _GPIO_IE	=	0x00c7
+                           008584   279 _ROM_ADDR	=	0x8584
+                           000084   280 _ROM_ADDR_L	=	0x0084
+                           000085   281 _ROM_ADDR_H	=	0x0085
+                           008F8E   282 _ROM_DATA	=	0x8f8e
+                           00008E   283 _ROM_DATA_L	=	0x008e
+                           00008F   284 _ROM_DATA_H	=	0x008f
+                           000086   285 _ROM_CTRL	=	0x0086
+                           000090   286 _P1	=	0x0090
+                           000092   287 _P1_MOD_OC	=	0x0092
+                           000093   288 _P1_DIR_PU	=	0x0093
+                           0000A0   289 _P2	=	0x00a0
+                           0000B0   290 _P3	=	0x00b0
+                           000096   291 _P3_MOD_OC	=	0x0096
+                           000097   292 _P3_DIR_PU	=	0x0097
+                           0000C6   293 _PIN_FUNC	=	0x00c6
+                           0000A2   294 _XBUS_AUX	=	0x00a2
+                           000088   295 _TCON	=	0x0088
+                           000089   296 _TMOD	=	0x0089
+                           00008A   297 _TL0	=	0x008a
+                           00008B   298 _TL1	=	0x008b
+                           00008C   299 _TH0	=	0x008c
+                           00008D   300 _TH1	=	0x008d
+                           000098   301 _SCON	=	0x0098
+                           000099   302 _SBUF	=	0x0099
+                           0000C8   303 _T2CON	=	0x00c8
+                           0000C9   304 _T2MOD	=	0x00c9
+                           00CBCA   305 _RCAP2	=	0xcbca
+                           0000CA   306 _RCAP2L	=	0x00ca
+                           0000CB   307 _RCAP2H	=	0x00cb
+                           00CDCC   308 _T2COUNT	=	0xcdcc
+                           0000CC   309 _TL2	=	0x00cc
+                           0000CD   310 _TH2	=	0x00cd
+                           00CFCE   311 _T2CAP1	=	0xcfce
+                           0000CE   312 _T2CAP1L	=	0x00ce
+                           0000CF   313 _T2CAP1H	=	0x00cf
+                           00009B   314 _PWM_DATA2	=	0x009b
+                           00009C   315 _PWM_DATA1	=	0x009c
+                           00009D   316 _PWM_CTRL	=	0x009d
+                           00009E   317 _PWM_CK_SE	=	0x009e
+                           0000F8   318 _SPI0_STAT	=	0x00f8
+                           0000F9   319 _SPI0_DATA	=	0x00f9
+                           0000FA   320 _SPI0_CTRL	=	0x00fa
+                           0000FB   321 _SPI0_CK_SE	=	0x00fb
+                           0000FC   322 _SPI0_SETUP	=	0x00fc
+                           0000C0   323 _SCON1	=	0x00c0
+                           0000C1   324 _SBUF1	=	0x00c1
+                           0000C2   325 _SBAUD1	=	0x00c2
+                           000080   326 _ADC_CTRL	=	0x0080
+                           00009A   327 _ADC_CFG	=	0x009a
+                           00009F   328 _ADC_DATA	=	0x009f
+                           0000C3   329 _TKEY_CTRL	=	0x00c3
+                           00C5C4   330 _TKEY_DAT	=	0xc5c4
+                           0000C4   331 _TKEY_DATL	=	0x00c4
+                           0000C5   332 _TKEY_DATH	=	0x00c5
+                           000091   333 _USB_C_CTRL	=	0x0091
+                           0000D1   334 _UDEV_CTRL	=	0x00d1
+                           0000D2   335 _UEP1_CTRL	=	0x00d2
+                           0000D3   336 _UEP1_T_LEN	=	0x00d3
+                           0000D4   337 _UEP2_CTRL	=	0x00d4
+                           0000D5   338 _UEP2_T_LEN	=	0x00d5
+                           0000D6   339 _UEP3_CTRL	=	0x00d6
+                           0000D7   340 _UEP3_T_LEN	=	0x00d7
+                           0000D8   341 _USB_INT_FG	=	0x00d8
+                           0000D9   342 _USB_INT_ST	=	0x00d9
+                           0000DA   343 _USB_MIS_ST	=	0x00da
+                           0000DB   344 _USB_RX_LEN	=	0x00db
+                           0000DC   345 _UEP0_CTRL	=	0x00dc
+                           0000DD   346 _UEP0_T_LEN	=	0x00dd
+                           0000DE   347 _UEP4_CTRL	=	0x00de
+                           0000DF   348 _UEP4_T_LEN	=	0x00df
+                           0000E1   349 _USB_INT_EN	=	0x00e1
+                           0000E2   350 _USB_CTRL	=	0x00e2
+                           0000E3   351 _USB_DEV_AD	=	0x00e3
+                           00E5E4   352 _UEP2_DMA	=	0xe5e4
+                           0000E4   353 _UEP2_DMA_L	=	0x00e4
+                           0000E5   354 _UEP2_DMA_H	=	0x00e5
+                           00E7E6   355 _UEP3_DMA	=	0xe7e6
+                           0000E6   356 _UEP3_DMA_L	=	0x00e6
+                           0000E7   357 _UEP3_DMA_H	=	0x00e7
+                           0000EA   358 _UEP4_1_MOD	=	0x00ea
+                           0000EB   359 _UEP2_3_MOD	=	0x00eb
+                           00EDEC   360 _UEP0_DMA	=	0xedec
+                           0000EC   361 _UEP0_DMA_L	=	0x00ec
+                           0000ED   362 _UEP0_DMA_H	=	0x00ed
+                           00EFEE   363 _UEP1_DMA	=	0xefee
+                           0000EE   364 _UEP1_DMA_L	=	0x00ee
+                           0000EF   365 _UEP1_DMA_H	=	0x00ef
+                                    366 ;--------------------------------------------------------
+                                    367 ; special function bits
+                                    368 ;--------------------------------------------------------
+                                    369 	.area RSEG    (ABS,DATA)
+      000000                        370 	.org 0x0000
+                           0000D7   371 _CY	=	0x00d7
+                           0000D6   372 _AC	=	0x00d6
+                           0000D5   373 _F0	=	0x00d5
+                           0000D4   374 _RS1	=	0x00d4
+                           0000D3   375 _RS0	=	0x00d3
+                           0000D2   376 _OV	=	0x00d2
+                           0000D1   377 _F1	=	0x00d1
+                           0000D0   378 _P	=	0x00d0
+                           0000AF   379 _EA	=	0x00af
+                           0000AE   380 _E_DIS	=	0x00ae
+                           0000AD   381 _ET2	=	0x00ad
+                           0000AC   382 _ES	=	0x00ac
+                           0000AB   383 _ET1	=	0x00ab
+                           0000AA   384 _EX1	=	0x00aa
+                           0000A9   385 _ET0	=	0x00a9
+                           0000A8   386 _EX0	=	0x00a8
+                           0000BF   387 _PH_FLAG	=	0x00bf
+                           0000BE   388 _PL_FLAG	=	0x00be
+                           0000BD   389 _PT2	=	0x00bd
+                           0000BC   390 _PS	=	0x00bc
+                           0000BB   391 _PT1	=	0x00bb
+                           0000BA   392 _PX1	=	0x00ba
+                           0000B9   393 _PT0	=	0x00b9
+                           0000B8   394 _PX0	=	0x00b8
+                           0000EF   395 _IE_WDOG	=	0x00ef
+                           0000EE   396 _IE_GPIO	=	0x00ee
+                           0000ED   397 _IE_PWMX	=	0x00ed
+                           0000EC   398 _IE_UART1	=	0x00ec
+                           0000EB   399 _IE_ADC	=	0x00eb
+                           0000EA   400 _IE_USB	=	0x00ea
+                           0000E9   401 _IE_TKEY	=	0x00e9
+                           0000E8   402 _IE_SPI0	=	0x00e8
+                           000097   403 _SCK	=	0x0097
+                           000097   404 _TXD1	=	0x0097
+                           000097   405 _TIN5	=	0x0097
+                           000096   406 _MISO	=	0x0096
+                           000096   407 _RXD1	=	0x0096
+                           000096   408 _TIN4	=	0x0096
+                           000095   409 _MOSI	=	0x0095
+                           000095   410 _PWM1	=	0x0095
+                           000095   411 _TIN3	=	0x0095
+                           000095   412 _UCC2	=	0x0095
+                           000095   413 _AIN2	=	0x0095
+                           000094   414 _T2_	=	0x0094
+                           000094   415 _CAP1_	=	0x0094
+                           000094   416 _SCS	=	0x0094
+                           000094   417 _TIN2	=	0x0094
+                           000094   418 _UCC1	=	0x0094
+                           000094   419 _AIN1	=	0x0094
+                           000093   420 _TXD_	=	0x0093
+                           000092   421 _RXD_	=	0x0092
+                           000091   422 _T2EX	=	0x0091
+                           000091   423 _CAP2	=	0x0091
+                           000091   424 _TIN1	=	0x0091
+                           000091   425 _VBUS2	=	0x0091
+                           000091   426 _AIN0	=	0x0091
+                           000090   427 _T2	=	0x0090
+                           000090   428 _CAP1	=	0x0090
+                           000090   429 _TIN0	=	0x0090
+                           0000B7   430 _UDM	=	0x00b7
+                           0000B6   431 _UDP	=	0x00b6
+                           0000B5   432 _T1	=	0x00b5
+                           0000B4   433 _PWM2	=	0x00b4
+                           0000B4   434 _RXD1_	=	0x00b4
+                           0000B4   435 _T0	=	0x00b4
+                           0000B3   436 _INT1	=	0x00b3
+                           0000B2   437 _TXD1_	=	0x00b2
+                           0000B2   438 _INT0	=	0x00b2
+                           0000B2   439 _VBUS1	=	0x00b2
+                           0000B2   440 _AIN3	=	0x00b2
+                           0000B1   441 _PWM2_	=	0x00b1
+                           0000B1   442 _TXD	=	0x00b1
+                           0000B0   443 _PWM1_	=	0x00b0
+                           0000B0   444 _RXD	=	0x00b0
+                           00008F   445 _TF1	=	0x008f
+                           00008E   446 _TR1	=	0x008e
+                           00008D   447 _TF0	=	0x008d
+                           00008C   448 _TR0	=	0x008c
+                           00008B   449 _IE1	=	0x008b
+                           00008A   450 _IT1	=	0x008a
+                           000089   451 _IE0	=	0x0089
+                           000088   452 _IT0	=	0x0088
+                           00009F   453 _SM0	=	0x009f
+                           00009E   454 _SM1	=	0x009e
+                           00009D   455 _SM2	=	0x009d
+                           00009C   456 _REN	=	0x009c
+                           00009B   457 _TB8	=	0x009b
+                           00009A   458 _RB8	=	0x009a
+                           000099   459 _TI	=	0x0099
+                           000098   460 _RI	=	0x0098
+                           0000CF   461 _TF2	=	0x00cf
+                           0000CF   462 _CAP1F	=	0x00cf
+                           0000CE   463 _EXF2	=	0x00ce
+                           0000CD   464 _RCLK	=	0x00cd
+                           0000CC   465 _TCLK	=	0x00cc
+                           0000CB   466 _EXEN2	=	0x00cb
+                           0000CA   467 _TR2	=	0x00ca
+                           0000C9   468 _C_T2	=	0x00c9
+                           0000C8   469 _CP_RL2	=	0x00c8
+                           0000FF   470 _S0_FST_ACT	=	0x00ff
+                           0000FE   471 _S0_IF_OV	=	0x00fe
+                           0000FD   472 _S0_IF_FIRST	=	0x00fd
+                           0000FC   473 _S0_IF_BYTE	=	0x00fc
+                           0000FB   474 _S0_FREE	=	0x00fb
+                           0000FA   475 _S0_T_FIFO	=	0x00fa
+                           0000F8   476 _S0_R_FIFO	=	0x00f8
+                           0000C7   477 _U1SM0	=	0x00c7
+                           0000C5   478 _U1SMOD	=	0x00c5
+                           0000C4   479 _U1REN	=	0x00c4
+                           0000C3   480 _U1TB8	=	0x00c3
+                           0000C2   481 _U1RB8	=	0x00c2
+                           0000C1   482 _U1TI	=	0x00c1
+                           0000C0   483 _U1RI	=	0x00c0
+                           000087   484 _CMPO	=	0x0087
+                           000086   485 _CMP_IF	=	0x0086
+                           000085   486 _ADC_IF	=	0x0085
+                           000084   487 _ADC_START	=	0x0084
+                           000083   488 _CMP_CHAN	=	0x0083
+                           000081   489 _ADC_CHAN1	=	0x0081
+                           000080   490 _ADC_CHAN0	=	0x0080
+                           0000DF   491 _U_IS_NAK	=	0x00df
+                           0000DE   492 _U_TOG_OK	=	0x00de
+                           0000DD   493 _U_SIE_FREE	=	0x00dd
+                           0000DC   494 _UIF_FIFO_OV	=	0x00dc
+                           0000DA   495 _UIF_SUSPEND	=	0x00da
+                           0000D9   496 _UIF_TRANSFER	=	0x00d9
+                           0000D8   497 _UIF_BUS_RST	=	0x00d8
+                           0000B1   498 _NHC_SS_PIN	=	0x00b1
+                           000095   499 _NHC_MOSI	=	0x0095
+                           000095   500 _NHC_MOSI_R	=	0x0095
+                           000097   501 _NHC_SCK	=	0x0097
+                                    502 ;--------------------------------------------------------
+                                    503 ; overlayable register banks
+                                    504 ;--------------------------------------------------------
+                                    505 	.area REG_BANK_0	(REL,OVR,DATA)
+      000000                        506 	.ds 8
+                                    507 ;--------------------------------------------------------
+                                    508 ; internal ram data
+                                    509 ;--------------------------------------------------------
+                                    510 	.area DSEG    (DATA)
+                                    511 ;--------------------------------------------------------
+                                    512 ; overlayable items in internal ram 
+                                    513 ;--------------------------------------------------------
+                                    514 ;--------------------------------------------------------
+                                    515 ; indirectly addressable internal ram data
+                                    516 ;--------------------------------------------------------
+                                    517 	.area ISEG    (DATA)
+                                    518 ;--------------------------------------------------------
+                                    519 ; absolute internal ram data
+                                    520 ;--------------------------------------------------------
+                                    521 	.area IABS    (ABS,DATA)
+                                    522 	.area IABS    (ABS,DATA)
+                                    523 ;--------------------------------------------------------
+                                    524 ; bit data
+                                    525 ;--------------------------------------------------------
+                                    526 	.area BSEG    (BIT)
+                                    527 ;--------------------------------------------------------
+                                    528 ; paged external ram data
+                                    529 ;--------------------------------------------------------
+                                    530 	.area PSEG    (PAG,XDATA)
+                                    531 ;--------------------------------------------------------
+                                    532 ; external ram data
+                                    533 ;--------------------------------------------------------
+                                    534 	.area XSEG    (XDATA)
+                                    535 ;--------------------------------------------------------
+                                    536 ; absolute external ram data
+                                    537 ;--------------------------------------------------------
+                                    538 	.area XABS    (ABS,XDATA)
+                                    539 ;--------------------------------------------------------
+                                    540 ; external initialized ram data
+                                    541 ;--------------------------------------------------------
+                                    542 	.area XISEG   (XDATA)
+                                    543 	.area HOME    (CODE)
+                                    544 	.area GSINIT0 (CODE)
+                                    545 	.area GSINIT1 (CODE)
+                                    546 	.area GSINIT2 (CODE)
+                                    547 	.area GSINIT3 (CODE)
+                                    548 	.area GSINIT4 (CODE)
+                                    549 	.area GSINIT5 (CODE)
+                                    550 	.area GSINIT  (CODE)
+                                    551 	.area GSFINAL (CODE)
+                                    552 	.area CSEG    (CODE)
+                                    553 ;--------------------------------------------------------
+                                    554 ; global & static initialisations
+                                    555 ;--------------------------------------------------------
+                                    556 	.area HOME    (CODE)
+                                    557 	.area GSINIT  (CODE)
+                                    558 	.area GSFINAL (CODE)
+                                    559 	.area GSINIT  (CODE)
+                                    560 ;--------------------------------------------------------
+                                    561 ; Home
+                                    562 ;--------------------------------------------------------
+                                    563 	.area HOME    (CODE)
+                                    564 	.area HOME    (CODE)
+                                    565 ;--------------------------------------------------------
+                                    566 ; code
+                                    567 ;--------------------------------------------------------
+                                    568 	.area CSEG    (CODE)
+                                    569 ;------------------------------------------------------------
+                                    570 ;Allocation info for local variables in function 'ICP_Send'
+                                    571 ;------------------------------------------------------------
+                                    572 ;u8Data                    Allocated to registers r7 
+                                    573 ;i                         Allocated to registers r6 
+                                    574 ;------------------------------------------------------------
+                                    575 ;	icp_n76e003.c:22: void ICP_Send(uint8_t u8Data) {
+                                    576 ;	-----------------------------------------
+                                    577 ;	 function ICP_Send
+                                    578 ;	-----------------------------------------
+      000876                        579 _ICP_Send:
+                           000007   580 	ar7 = 0x07
+                           000006   581 	ar6 = 0x06
+                           000005   582 	ar5 = 0x05
+                           000004   583 	ar4 = 0x04
+                           000003   584 	ar3 = 0x03
+                           000002   585 	ar2 = 0x02
+                           000001   586 	ar1 = 0x01
+                           000000   587 	ar0 = 0x00
+      000876 AF 82            [24]  588 	mov	r7,dpl
+                                    589 ;	icp_n76e003.c:26: P1_DIR_PU |= (1 << 5);
+      000878 43 93 20         [24]  590 	orl	_P1_DIR_PU,#0x20
+                                    591 ;	icp_n76e003.c:27: for(i=0; i<8; ++i) {
+      00087B 7E 00            [12]  592 	mov	r6,#0x00
+      00087D                        593 00105$:
+                                    594 ;	icp_n76e003.c:28: if(u8Data&0x80) {
+      00087D EF               [12]  595 	mov	a,r7
+      00087E 30 E7 04         [24]  596 	jnb	acc.7,00102$
+                                    597 ;	icp_n76e003.c:29: NHC_MOSI=1;
+      000881 D2 95            [12]  598 	setb	_NHC_MOSI
+      000883 80 02            [24]  599 	sjmp	00103$
+      000885                        600 00102$:
+                                    601 ;	icp_n76e003.c:31: NHC_MOSI=0;
+      000885 C2 95            [12]  602 	clr	_NHC_MOSI
+      000887                        603 00103$:
+                                    604 ;	icp_n76e003.c:34: __delay_us(1);
+      000887 90 00 01         [24]  605 	mov	dptr,#0x0001
+      00088A C0 07            [24]  606 	push	ar7
+      00088C C0 06            [24]  607 	push	ar6
+      00088E 12 00 C2         [24]  608 	lcall	___delay_us
+                                    609 ;	icp_n76e003.c:35: NHC_SCK=1;
+      000891 D2 97            [12]  610 	setb	_NHC_SCK
+                                    611 ;	icp_n76e003.c:37: __delay_us(1);
+      000893 90 00 01         [24]  612 	mov	dptr,#0x0001
+      000896 12 00 C2         [24]  613 	lcall	___delay_us
+      000899 D0 06            [24]  614 	pop	ar6
+      00089B D0 07            [24]  615 	pop	ar7
+                                    616 ;	icp_n76e003.c:38: NHC_SCK=0;
+      00089D C2 97            [12]  617 	clr	_NHC_SCK
+                                    618 ;	icp_n76e003.c:39: u8Data<<=1;
+      00089F EF               [12]  619 	mov	a,r7
+      0008A0 2F               [12]  620 	add	a,r7
+      0008A1 FF               [12]  621 	mov	r7,a
+                                    622 ;	icp_n76e003.c:27: for(i=0; i<8; ++i) {
+      0008A2 0E               [12]  623 	inc	r6
+      0008A3 BE 08 00         [24]  624 	cjne	r6,#0x08,00120$
+      0008A6                        625 00120$:
+      0008A6 40 D5            [24]  626 	jc	00105$
+                                    627 ;	icp_n76e003.c:41: __delay_us(1);
+      0008A8 90 00 01         [24]  628 	mov	dptr,#0x0001
+      0008AB 02 00 C2         [24]  629 	ljmp	___delay_us
+                                    630 ;------------------------------------------------------------
+                                    631 ;Allocation info for local variables in function 'ICP_Recv'
+                                    632 ;------------------------------------------------------------
+                                    633 ;u8Ack                     Allocated to registers r7 
+                                    634 ;i                         Allocated to registers r5 
+                                    635 ;ret                       Allocated to registers r6 
+                                    636 ;------------------------------------------------------------
+                                    637 ;	icp_n76e003.c:43: uint8_t ICP_Recv(uint8_t u8Ack) {
+                                    638 ;	-----------------------------------------
+                                    639 ;	 function ICP_Recv
+                                    640 ;	-----------------------------------------
+      0008AE                        641 _ICP_Recv:
+      0008AE AF 82            [24]  642 	mov	r7,dpl
+                                    643 ;	icp_n76e003.c:44: uint8_t i, ret=0;
+      0008B0 7E 00            [12]  644 	mov	r6,#0x00
+                                    645 ;	icp_n76e003.c:46: NHC_MOSI = 1;
+      0008B2 D2 95            [12]  646 	setb	_NHC_MOSI
+                                    647 ;	icp_n76e003.c:47: P1_DIR_PU &= ~(1 << 5);
+      0008B4 AD 93            [24]  648 	mov	r5,_P1_DIR_PU
+      0008B6 74 DF            [12]  649 	mov	a,#0xDF
+      0008B8 5D               [12]  650 	anl	a,r5
+      0008B9 F5 93            [12]  651 	mov	_P1_DIR_PU,a
+                                    652 ;	icp_n76e003.c:49: for(i=0; i<8; ++i) {
+      0008BB 7D 00            [12]  653 	mov	r5,#0x00
+      0008BD                        654 00107$:
+                                    655 ;	icp_n76e003.c:50: ret<<=1;
+      0008BD EE               [12]  656 	mov	a,r6
+      0008BE 2E               [12]  657 	add	a,r6
+      0008BF FE               [12]  658 	mov	r6,a
+                                    659 ;	icp_n76e003.c:51: NHC_SCK=1;
+      0008C0 D2 97            [12]  660 	setb	_NHC_SCK
+                                    661 ;	icp_n76e003.c:53: __delay_us(1);
+      0008C2 90 00 01         [24]  662 	mov	dptr,#0x0001
+      0008C5 C0 07            [24]  663 	push	ar7
+      0008C7 C0 06            [24]  664 	push	ar6
+      0008C9 C0 05            [24]  665 	push	ar5
+      0008CB 12 00 C2         [24]  666 	lcall	___delay_us
+      0008CE D0 05            [24]  667 	pop	ar5
+      0008D0 D0 06            [24]  668 	pop	ar6
+      0008D2 D0 07            [24]  669 	pop	ar7
+                                    670 ;	icp_n76e003.c:54: if(NHC_MOSI_R) {
+      0008D4 30 95 03         [24]  671 	jnb	_NHC_MOSI_R,00102$
+                                    672 ;	icp_n76e003.c:55: ret|=0x01;
+      0008D7 43 06 01         [24]  673 	orl	ar6,#0x01
+      0008DA                        674 00102$:
+                                    675 ;	icp_n76e003.c:57: NHC_SCK=0;
+      0008DA C2 97            [12]  676 	clr	_NHC_SCK
+                                    677 ;	icp_n76e003.c:59: __delay_us(1);
+      0008DC 90 00 01         [24]  678 	mov	dptr,#0x0001
+      0008DF C0 07            [24]  679 	push	ar7
+      0008E1 C0 06            [24]  680 	push	ar6
+      0008E3 C0 05            [24]  681 	push	ar5
+      0008E5 12 00 C2         [24]  682 	lcall	___delay_us
+      0008E8 D0 05            [24]  683 	pop	ar5
+      0008EA D0 06            [24]  684 	pop	ar6
+      0008EC D0 07            [24]  685 	pop	ar7
+                                    686 ;	icp_n76e003.c:49: for(i=0; i<8; ++i) {
+      0008EE 0D               [12]  687 	inc	r5
+      0008EF BD 08 00         [24]  688 	cjne	r5,#0x08,00125$
+      0008F2                        689 00125$:
+      0008F2 40 C9            [24]  690 	jc	00107$
+                                    691 ;	icp_n76e003.c:63: P1_DIR_PU |= (1 << 5);
+      0008F4 43 93 20         [24]  692 	orl	_P1_DIR_PU,#0x20
+                                    693 ;	icp_n76e003.c:64: if(u8Ack) {
+      0008F7 EF               [12]  694 	mov	a,r7
+      0008F8 60 04            [24]  695 	jz	00105$
+                                    696 ;	icp_n76e003.c:65: NHC_MOSI=1;
+      0008FA D2 95            [12]  697 	setb	_NHC_MOSI
+      0008FC 80 02            [24]  698 	sjmp	00106$
+      0008FE                        699 00105$:
+                                    700 ;	icp_n76e003.c:67: NHC_MOSI=0;
+      0008FE C2 95            [12]  701 	clr	_NHC_MOSI
+      000900                        702 00106$:
+                                    703 ;	icp_n76e003.c:69: NHC_SCK=1;
+      000900 D2 97            [12]  704 	setb	_NHC_SCK
+                                    705 ;	icp_n76e003.c:71: __delay_us(1);
+      000902 90 00 01         [24]  706 	mov	dptr,#0x0001
+      000905 C0 06            [24]  707 	push	ar6
+      000907 12 00 C2         [24]  708 	lcall	___delay_us
+                                    709 ;	icp_n76e003.c:72: NHC_SCK=0;
+      00090A C2 97            [12]  710 	clr	_NHC_SCK
+                                    711 ;	icp_n76e003.c:74: __delay_us(1);
+      00090C 90 00 01         [24]  712 	mov	dptr,#0x0001
+      00090F 12 00 C2         [24]  713 	lcall	___delay_us
+      000912 D0 06            [24]  714 	pop	ar6
+                                    715 ;	icp_n76e003.c:75: return ret;
+      000914 8E 82            [24]  716 	mov	dpl,r6
+      000916 22               [24]  717 	ret
+                                    718 ;------------------------------------------------------------
+                                    719 ;Allocation info for local variables in function 'ICP_Init'
+                                    720 ;------------------------------------------------------------
+                                    721 ;	icp_n76e003.c:79: void ICP_Init(void) {
+                                    722 ;	-----------------------------------------
+                                    723 ;	 function ICP_Init
+                                    724 ;	-----------------------------------------
+      000917                        725 _ICP_Init:
+                                    726 ;	icp_n76e003.c:82: NHC_SS_PIN=1;
+      000917 D2 B1            [12]  727 	setb	_NHC_SS_PIN
+                                    728 ;	icp_n76e003.c:83: NHC_MOSI=0;
+      000919 C2 95            [12]  729 	clr	_NHC_MOSI
+                                    730 ;	icp_n76e003.c:84: NHC_SCK=0;
+      00091B C2 97            [12]  731 	clr	_NHC_SCK
+                                    732 ;	icp_n76e003.c:89: P1_DIR_PU |= (1 << 5);
+      00091D 43 93 20         [24]  733 	orl	_P1_DIR_PU,#0x20
+                                    734 ;	icp_n76e003.c:93: P1_DIR_PU |= (1 << 7);
+      000920 43 93 80         [24]  735 	orl	_P1_DIR_PU,#0x80
+                                    736 ;	icp_n76e003.c:95: __delay_ms(10);
+      000923 90 00 0A         [24]  737 	mov	dptr,#0x000A
+      000926 12 00 9D         [24]  738 	lcall	___delay_ms
+                                    739 ;	icp_n76e003.c:99: P3_DIR_PU |= (1 << 1);
+      000929 43 97 02         [24]  740 	orl	_P3_DIR_PU,#0x02
+                                    741 ;	icp_n76e003.c:101: NHC_SS_PIN=0;
+      00092C C2 B1            [12]  742 	clr	_NHC_SS_PIN
+                                    743 ;	icp_n76e003.c:103: __delay_ms(10);
+      00092E 90 00 0A         [24]  744 	mov	dptr,#0x000A
+      000931 12 00 9D         [24]  745 	lcall	___delay_ms
+                                    746 ;	icp_n76e003.c:104: NHC_SS_PIN=1;
+      000934 D2 B1            [12]  747 	setb	_NHC_SS_PIN
+                                    748 ;	icp_n76e003.c:106: __delay_ms(10);
+      000936 90 00 0A         [24]  749 	mov	dptr,#0x000A
+      000939 12 00 9D         [24]  750 	lcall	___delay_ms
+                                    751 ;	icp_n76e003.c:107: NHC_SS_PIN=0;
+      00093C C2 B1            [12]  752 	clr	_NHC_SS_PIN
+                                    753 ;	icp_n76e003.c:109: __delay_ms(10);
+      00093E 90 00 0A         [24]  754 	mov	dptr,#0x000A
+      000941 12 00 9D         [24]  755 	lcall	___delay_ms
+                                    756 ;	icp_n76e003.c:110: NHC_SS_PIN=1;
+      000944 D2 B1            [12]  757 	setb	_NHC_SS_PIN
+                                    758 ;	icp_n76e003.c:112: __delay_ms(10);
+      000946 90 00 0A         [24]  759 	mov	dptr,#0x000A
+      000949 12 00 9D         [24]  760 	lcall	___delay_ms
+                                    761 ;	icp_n76e003.c:113: NHC_SS_PIN=0;
+      00094C C2 B1            [12]  762 	clr	_NHC_SS_PIN
+                                    763 ;	icp_n76e003.c:115: __delay_ms(10);
+      00094E 90 00 0A         [24]  764 	mov	dptr,#0x000A
+      000951 12 00 9D         [24]  765 	lcall	___delay_ms
+                                    766 ;	icp_n76e003.c:116: NHC_SS_PIN=1;
+      000954 D2 B1            [12]  767 	setb	_NHC_SS_PIN
+                                    768 ;	icp_n76e003.c:118: __delay_ms(30);
+      000956 90 00 1E         [24]  769 	mov	dptr,#0x001E
+      000959 12 00 9D         [24]  770 	lcall	___delay_ms
+                                    771 ;	icp_n76e003.c:119: NHC_SS_PIN=0;
+      00095C C2 B1            [12]  772 	clr	_NHC_SS_PIN
+                                    773 ;	icp_n76e003.c:121: __delay_ms(40);
+      00095E 90 00 28         [24]  774 	mov	dptr,#0x0028
+      000961 12 00 9D         [24]  775 	lcall	___delay_ms
+                                    776 ;	icp_n76e003.c:122: NHC_SS_PIN=1;
+      000964 D2 B1            [12]  777 	setb	_NHC_SS_PIN
+                                    778 ;	icp_n76e003.c:124: __delay_ms(30);
+      000966 90 00 1E         [24]  779 	mov	dptr,#0x001E
+      000969 12 00 9D         [24]  780 	lcall	___delay_ms
+                                    781 ;	icp_n76e003.c:125: NHC_SS_PIN=0;
+      00096C C2 B1            [12]  782 	clr	_NHC_SS_PIN
+                                    783 ;	icp_n76e003.c:127: __delay_ms(20);
+      00096E 90 00 14         [24]  784 	mov	dptr,#0x0014
+      000971 12 00 9D         [24]  785 	lcall	___delay_ms
+                                    786 ;	icp_n76e003.c:128: NHC_SS_PIN=1;
+      000974 D2 B1            [12]  787 	setb	_NHC_SS_PIN
+                                    788 ;	icp_n76e003.c:130: __delay_ms(10);
+      000976 90 00 0A         [24]  789 	mov	dptr,#0x000A
+      000979 12 00 9D         [24]  790 	lcall	___delay_ms
+                                    791 ;	icp_n76e003.c:131: NHC_SS_PIN=0;
+      00097C C2 B1            [12]  792 	clr	_NHC_SS_PIN
+                                    793 ;	icp_n76e003.c:133: __delay_ms(10);
+      00097E 90 00 0A         [24]  794 	mov	dptr,#0x000A
+      000981 12 00 9D         [24]  795 	lcall	___delay_ms
+                                    796 ;	icp_n76e003.c:134: NHC_SS_PIN=1;
+      000984 D2 B1            [12]  797 	setb	_NHC_SS_PIN
+                                    798 ;	icp_n76e003.c:136: __delay_ms(20);
+      000986 90 00 14         [24]  799 	mov	dptr,#0x0014
+      000989 12 00 9D         [24]  800 	lcall	___delay_ms
+                                    801 ;	icp_n76e003.c:137: NHC_SS_PIN=0;
+      00098C C2 B1            [12]  802 	clr	_NHC_SS_PIN
+                                    803 ;	icp_n76e003.c:139: __delay_ms(10);
+      00098E 90 00 0A         [24]  804 	mov	dptr,#0x000A
+      000991 12 00 9D         [24]  805 	lcall	___delay_ms
+                                    806 ;	icp_n76e003.c:140: NHC_SS_PIN=1;
+      000994 D2 B1            [12]  807 	setb	_NHC_SS_PIN
+                                    808 ;	icp_n76e003.c:142: __delay_ms(20);
+      000996 90 00 14         [24]  809 	mov	dptr,#0x0014
+      000999 12 00 9D         [24]  810 	lcall	___delay_ms
+                                    811 ;	icp_n76e003.c:143: NHC_SS_PIN=0;
+      00099C C2 B1            [12]  812 	clr	_NHC_SS_PIN
+                                    813 ;	icp_n76e003.c:145: __delay_ms(10);
+      00099E 90 00 0A         [24]  814 	mov	dptr,#0x000A
+      0009A1 12 00 9D         [24]  815 	lcall	___delay_ms
+                                    816 ;	icp_n76e003.c:148: ICP_Send(0x5A);
+      0009A4 75 82 5A         [24]  817 	mov	dpl,#0x5A
+      0009A7 12 08 76         [24]  818 	lcall	_ICP_Send
+                                    819 ;	icp_n76e003.c:149: ICP_Send(0xA5);
+      0009AA 75 82 A5         [24]  820 	mov	dpl,#0xA5
+      0009AD 12 08 76         [24]  821 	lcall	_ICP_Send
+                                    822 ;	icp_n76e003.c:150: ICP_Send(0x03);
+      0009B0 75 82 03         [24]  823 	mov	dpl,#0x03
+      0009B3 12 08 76         [24]  824 	lcall	_ICP_Send
+                                    825 ;	icp_n76e003.c:152: __delay_ms(10);
+      0009B6 90 00 0A         [24]  826 	mov	dptr,#0x000A
+      0009B9 12 00 9D         [24]  827 	lcall	___delay_ms
+                                    828 ;	icp_n76e003.c:153: ICP_Send(0x00);
+      0009BC 75 82 00         [24]  829 	mov	dpl,#0x00
+      0009BF 12 08 76         [24]  830 	lcall	_ICP_Send
+                                    831 ;	icp_n76e003.c:154: ICP_Send(0x00);
+      0009C2 75 82 00         [24]  832 	mov	dpl,#0x00
+      0009C5 12 08 76         [24]  833 	lcall	_ICP_Send
+                                    834 ;	icp_n76e003.c:155: ICP_Send(0x0B);
+      0009C8 75 82 0B         [24]  835 	mov	dpl,#0x0B
+      0009CB 12 08 76         [24]  836 	lcall	_ICP_Send
+                                    837 ;	icp_n76e003.c:156: u8TransBuff[0]=ICP_Recv(0x01);
+      0009CE 75 82 01         [24]  838 	mov	dpl,#0x01
+      0009D1 12 08 AE         [24]  839 	lcall	_ICP_Recv
+      0009D4 AF 82            [24]  840 	mov	r7,dpl
+      0009D6 90 00 D6         [24]  841 	mov	dptr,#_u8TransBuff
+      0009D9 EF               [12]  842 	mov	a,r7
+      0009DA F0               [24]  843 	movx	@dptr,a
+                                    844 ;	icp_n76e003.c:158: ICP_Send(0x00);
+      0009DB 75 82 00         [24]  845 	mov	dpl,#0x00
+      0009DE 12 08 76         [24]  846 	lcall	_ICP_Send
+                                    847 ;	icp_n76e003.c:159: ICP_Send(0x00);
+      0009E1 75 82 00         [24]  848 	mov	dpl,#0x00
+      0009E4 12 08 76         [24]  849 	lcall	_ICP_Send
+                                    850 ;	icp_n76e003.c:160: ICP_Send(0x0C);
+      0009E7 75 82 0C         [24]  851 	mov	dpl,#0x0C
+      0009EA 12 08 76         [24]  852 	lcall	_ICP_Send
+                                    853 ;	icp_n76e003.c:161: u8TransBuff[1]=ICP_Recv(0x01);
+      0009ED 75 82 01         [24]  854 	mov	dpl,#0x01
+      0009F0 12 08 AE         [24]  855 	lcall	_ICP_Recv
+      0009F3 AF 82            [24]  856 	mov	r7,dpl
+      0009F5 90 00 D7         [24]  857 	mov	dptr,#(_u8TransBuff + 0x0001)
+      0009F8 EF               [12]  858 	mov	a,r7
+      0009F9 F0               [24]  859 	movx	@dptr,a
+                                    860 ;	icp_n76e003.c:163: ICP_Send(0x00);
+      0009FA 75 82 00         [24]  861 	mov	dpl,#0x00
+      0009FD 12 08 76         [24]  862 	lcall	_ICP_Send
+                                    863 ;	icp_n76e003.c:164: ICP_Send(0x00);
+      000A00 75 82 00         [24]  864 	mov	dpl,#0x00
+      000A03 12 08 76         [24]  865 	lcall	_ICP_Send
+                                    866 ;	icp_n76e003.c:165: ICP_Send(0x4C);
+      000A06 75 82 4C         [24]  867 	mov	dpl,#0x4C
+      000A09 12 08 76         [24]  868 	lcall	_ICP_Send
+                                    869 ;	icp_n76e003.c:166: u8TransBuff[2]=ICP_Recv(0x01);
+      000A0C 75 82 01         [24]  870 	mov	dpl,#0x01
+      000A0F 12 08 AE         [24]  871 	lcall	_ICP_Recv
+      000A12 AF 82            [24]  872 	mov	r7,dpl
+      000A14 90 00 D8         [24]  873 	mov	dptr,#(_u8TransBuff + 0x0002)
+      000A17 EF               [12]  874 	mov	a,r7
+      000A18 F0               [24]  875 	movx	@dptr,a
+      000A19 22               [24]  876 	ret
+                                    877 ;------------------------------------------------------------
+                                    878 ;Allocation info for local variables in function 'ICP_Enter'
+                                    879 ;------------------------------------------------------------
+                                    880 ;	icp_n76e003.c:174: void ICP_Enter(void) {
+                                    881 ;	-----------------------------------------
+                                    882 ;	 function ICP_Enter
+                                    883 ;	-----------------------------------------
+      000A1A                        884 _ICP_Enter:
+                                    885 ;	icp_n76e003.c:177: NHC_SS_PIN=1;
+      000A1A D2 B1            [12]  886 	setb	_NHC_SS_PIN
+                                    887 ;	icp_n76e003.c:178: NHC_MOSI=0;
+      000A1C C2 95            [12]  888 	clr	_NHC_MOSI
+                                    889 ;	icp_n76e003.c:179: NHC_SCK=0;
+      000A1E C2 97            [12]  890 	clr	_NHC_SCK
+                                    891 ;	icp_n76e003.c:184: P1_DIR_PU |= (1 << 5);
+      000A20 43 93 20         [24]  892 	orl	_P1_DIR_PU,#0x20
+                                    893 ;	icp_n76e003.c:188: P1_DIR_PU |= (1 << 7);
+      000A23 43 93 80         [24]  894 	orl	_P1_DIR_PU,#0x80
+                                    895 ;	icp_n76e003.c:190: __delay_ms(10);
+      000A26 90 00 0A         [24]  896 	mov	dptr,#0x000A
+      000A29 12 00 9D         [24]  897 	lcall	___delay_ms
+                                    898 ;	icp_n76e003.c:194: P3_DIR_PU |= (1 << 1);
+      000A2C 43 97 02         [24]  899 	orl	_P3_DIR_PU,#0x02
+                                    900 ;	icp_n76e003.c:196: NHC_SS_PIN=0;
+      000A2F C2 B1            [12]  901 	clr	_NHC_SS_PIN
+                                    902 ;	icp_n76e003.c:198: __delay_ms(10);
+      000A31 90 00 0A         [24]  903 	mov	dptr,#0x000A
+      000A34 12 00 9D         [24]  904 	lcall	___delay_ms
+                                    905 ;	icp_n76e003.c:199: NHC_SS_PIN=1;
+      000A37 D2 B1            [12]  906 	setb	_NHC_SS_PIN
+                                    907 ;	icp_n76e003.c:201: __delay_ms(10);
+      000A39 90 00 0A         [24]  908 	mov	dptr,#0x000A
+      000A3C 12 00 9D         [24]  909 	lcall	___delay_ms
+                                    910 ;	icp_n76e003.c:202: NHC_SS_PIN=0;
+      000A3F C2 B1            [12]  911 	clr	_NHC_SS_PIN
+                                    912 ;	icp_n76e003.c:204: __delay_ms(10);
+      000A41 90 00 0A         [24]  913 	mov	dptr,#0x000A
+      000A44 12 00 9D         [24]  914 	lcall	___delay_ms
+                                    915 ;	icp_n76e003.c:205: NHC_SS_PIN=1;
+      000A47 D2 B1            [12]  916 	setb	_NHC_SS_PIN
+                                    917 ;	icp_n76e003.c:207: __delay_ms(10);
+      000A49 90 00 0A         [24]  918 	mov	dptr,#0x000A
+      000A4C 12 00 9D         [24]  919 	lcall	___delay_ms
+                                    920 ;	icp_n76e003.c:208: NHC_SS_PIN=0;
+      000A4F C2 B1            [12]  921 	clr	_NHC_SS_PIN
+                                    922 ;	icp_n76e003.c:210: __delay_ms(10);
+      000A51 90 00 0A         [24]  923 	mov	dptr,#0x000A
+      000A54 12 00 9D         [24]  924 	lcall	___delay_ms
+                                    925 ;	icp_n76e003.c:211: NHC_SS_PIN=1;
+      000A57 D2 B1            [12]  926 	setb	_NHC_SS_PIN
+                                    927 ;	icp_n76e003.c:213: __delay_ms(30);
+      000A59 90 00 1E         [24]  928 	mov	dptr,#0x001E
+      000A5C 12 00 9D         [24]  929 	lcall	___delay_ms
+                                    930 ;	icp_n76e003.c:214: NHC_SS_PIN=0;
+      000A5F C2 B1            [12]  931 	clr	_NHC_SS_PIN
+                                    932 ;	icp_n76e003.c:216: __delay_ms(40);
+      000A61 90 00 28         [24]  933 	mov	dptr,#0x0028
+      000A64 12 00 9D         [24]  934 	lcall	___delay_ms
+                                    935 ;	icp_n76e003.c:217: NHC_SS_PIN=1;
+      000A67 D2 B1            [12]  936 	setb	_NHC_SS_PIN
+                                    937 ;	icp_n76e003.c:219: __delay_ms(30);
+      000A69 90 00 1E         [24]  938 	mov	dptr,#0x001E
+      000A6C 12 00 9D         [24]  939 	lcall	___delay_ms
+                                    940 ;	icp_n76e003.c:220: NHC_SS_PIN=0;
+      000A6F C2 B1            [12]  941 	clr	_NHC_SS_PIN
+                                    942 ;	icp_n76e003.c:222: __delay_ms(20);
+      000A71 90 00 14         [24]  943 	mov	dptr,#0x0014
+      000A74 12 00 9D         [24]  944 	lcall	___delay_ms
+                                    945 ;	icp_n76e003.c:223: NHC_SS_PIN=1;
+      000A77 D2 B1            [12]  946 	setb	_NHC_SS_PIN
+                                    947 ;	icp_n76e003.c:225: __delay_ms(10);
+      000A79 90 00 0A         [24]  948 	mov	dptr,#0x000A
+      000A7C 12 00 9D         [24]  949 	lcall	___delay_ms
+                                    950 ;	icp_n76e003.c:226: NHC_SS_PIN=0;
+      000A7F C2 B1            [12]  951 	clr	_NHC_SS_PIN
+                                    952 ;	icp_n76e003.c:228: __delay_ms(10);
+      000A81 90 00 0A         [24]  953 	mov	dptr,#0x000A
+      000A84 12 00 9D         [24]  954 	lcall	___delay_ms
+                                    955 ;	icp_n76e003.c:229: NHC_SS_PIN=1;
+      000A87 D2 B1            [12]  956 	setb	_NHC_SS_PIN
+                                    957 ;	icp_n76e003.c:231: __delay_ms(20);
+      000A89 90 00 14         [24]  958 	mov	dptr,#0x0014
+      000A8C 12 00 9D         [24]  959 	lcall	___delay_ms
+                                    960 ;	icp_n76e003.c:232: NHC_SS_PIN=0;
+      000A8F C2 B1            [12]  961 	clr	_NHC_SS_PIN
+                                    962 ;	icp_n76e003.c:234: __delay_ms(10);
+      000A91 90 00 0A         [24]  963 	mov	dptr,#0x000A
+      000A94 12 00 9D         [24]  964 	lcall	___delay_ms
+                                    965 ;	icp_n76e003.c:235: NHC_SS_PIN=1;
+      000A97 D2 B1            [12]  966 	setb	_NHC_SS_PIN
+                                    967 ;	icp_n76e003.c:237: __delay_ms(20);
+      000A99 90 00 14         [24]  968 	mov	dptr,#0x0014
+      000A9C 12 00 9D         [24]  969 	lcall	___delay_ms
+                                    970 ;	icp_n76e003.c:238: NHC_SS_PIN=0;
+      000A9F C2 B1            [12]  971 	clr	_NHC_SS_PIN
+                                    972 ;	icp_n76e003.c:240: __delay_ms(10);
+      000AA1 90 00 0A         [24]  973 	mov	dptr,#0x000A
+      000AA4 12 00 9D         [24]  974 	lcall	___delay_ms
+                                    975 ;	icp_n76e003.c:243: ICP_Send(0x5A);
+      000AA7 75 82 5A         [24]  976 	mov	dpl,#0x5A
+      000AAA 12 08 76         [24]  977 	lcall	_ICP_Send
+                                    978 ;	icp_n76e003.c:244: ICP_Send(0xA5);
+      000AAD 75 82 A5         [24]  979 	mov	dpl,#0xA5
+      000AB0 12 08 76         [24]  980 	lcall	_ICP_Send
+                                    981 ;	icp_n76e003.c:245: ICP_Send(0x03);
+      000AB3 75 82 03         [24]  982 	mov	dpl,#0x03
+      000AB6 12 08 76         [24]  983 	lcall	_ICP_Send
+                                    984 ;	icp_n76e003.c:247: __delay_ms(10);
+      000AB9 90 00 0A         [24]  985 	mov	dptr,#0x000A
+      000ABC 02 00 9D         [24]  986 	ljmp	___delay_ms
+                                    987 ;------------------------------------------------------------
+                                    988 ;Allocation info for local variables in function 'ICP_Write'
+                                    989 ;------------------------------------------------------------
+                                    990 ;i                         Allocated to registers r6 
+                                    991 ;n                         Allocated to registers r7 
+                                    992 ;------------------------------------------------------------
+                                    993 ;	icp_n76e003.c:270: void ICP_Write(void) {
+                                    994 ;	-----------------------------------------
+                                    995 ;	 function ICP_Write
+                                    996 ;	-----------------------------------------
+      000ABF                        997 _ICP_Write:
+                                    998 ;	icp_n76e003.c:272: n=u8ReceiveBuff[2];
+      000ABF 90 00 42         [24]  999 	mov	dptr,#(_u8ReceiveBuff + 0x0002)
+      000AC2 E0               [24] 1000 	movx	a,@dptr
+      000AC3 FF               [12] 1001 	mov	r7,a
+                                   1002 ;	icp_n76e003.c:273: for(i=0; i<n; ++i) {
+      000AC4 7E 00            [12] 1003 	mov	r6,#0x00
+      000AC6                       1004 00103$:
+      000AC6 C3               [12] 1005 	clr	c
+      000AC7 EE               [12] 1006 	mov	a,r6
+      000AC8 9F               [12] 1007 	subb	a,r7
+      000AC9 50 1D            [24] 1008 	jnc	00105$
+                                   1009 ;	icp_n76e003.c:274: ICP_Send(u8ReceiveBuff[3+i]);
+      000ACB 74 03            [12] 1010 	mov	a,#0x03
+      000ACD 2E               [12] 1011 	add	a,r6
+      000ACE 24 40            [12] 1012 	add	a,#_u8ReceiveBuff
+      000AD0 F5 82            [12] 1013 	mov	dpl,a
+      000AD2 E4               [12] 1014 	clr	a
+      000AD3 34 00            [12] 1015 	addc	a,#(_u8ReceiveBuff >> 8)
+      000AD5 F5 83            [12] 1016 	mov	dph,a
+      000AD7 E0               [24] 1017 	movx	a,@dptr
+      000AD8 F5 82            [12] 1018 	mov	dpl,a
+      000ADA C0 07            [24] 1019 	push	ar7
+      000ADC C0 06            [24] 1020 	push	ar6
+      000ADE 12 08 76         [24] 1021 	lcall	_ICP_Send
+      000AE1 D0 06            [24] 1022 	pop	ar6
+      000AE3 D0 07            [24] 1023 	pop	ar7
+                                   1024 ;	icp_n76e003.c:273: for(i=0; i<n; ++i) {
+      000AE5 0E               [12] 1025 	inc	r6
+      000AE6 80 DE            [24] 1026 	sjmp	00103$
+      000AE8                       1027 00105$:
+      000AE8 22               [24] 1028 	ret
+                                   1029 ;------------------------------------------------------------
+                                   1030 ;Allocation info for local variables in function 'ICP_Read'
+                                   1031 ;------------------------------------------------------------
+                                   1032 ;i                         Allocated to registers r5 
+                                   1033 ;n                         Allocated to registers r7 
+                                   1034 ;ack                       Allocated to registers r6 
+                                   1035 ;------------------------------------------------------------
+                                   1036 ;	icp_n76e003.c:278: void ICP_Read(void) {
+                                   1037 ;	-----------------------------------------
+                                   1038 ;	 function ICP_Read
+                                   1039 ;	-----------------------------------------
+      000AE9                       1040 _ICP_Read:
+                                   1041 ;	icp_n76e003.c:280: n=u8ReceiveBuff[2];
+      000AE9 90 00 42         [24] 1042 	mov	dptr,#(_u8ReceiveBuff + 0x0002)
+      000AEC E0               [24] 1043 	movx	a,@dptr
+      000AED FF               [12] 1044 	mov	r7,a
+                                   1045 ;	icp_n76e003.c:281: ack=u8ReceiveBuff[3];
+      000AEE 90 00 43         [24] 1046 	mov	dptr,#(_u8ReceiveBuff + 0x0003)
+      000AF1 E0               [24] 1047 	movx	a,@dptr
+      000AF2 FE               [12] 1048 	mov	r6,a
+                                   1049 ;	icp_n76e003.c:283: for(i=0; i<n-1; ++i) {
+      000AF3 7D 00            [12] 1050 	mov	r5,#0x00
+      000AF5                       1051 00103$:
+      000AF5 8F 03            [24] 1052 	mov	ar3,r7
+      000AF7 7C 00            [12] 1053 	mov	r4,#0x00
+      000AF9 1B               [12] 1054 	dec	r3
+      000AFA BB FF 01         [24] 1055 	cjne	r3,#0xFF,00114$
+      000AFD 1C               [12] 1056 	dec	r4
+      000AFE                       1057 00114$:
+      000AFE 8D 01            [24] 1058 	mov	ar1,r5
+      000B00 7A 00            [12] 1059 	mov	r2,#0x00
+      000B02 C3               [12] 1060 	clr	c
+      000B03 E9               [12] 1061 	mov	a,r1
+      000B04 9B               [12] 1062 	subb	a,r3
+      000B05 EA               [12] 1063 	mov	a,r2
+      000B06 64 80            [12] 1064 	xrl	a,#0x80
+      000B08 8C F0            [24] 1065 	mov	b,r4
+      000B0A 63 F0 80         [24] 1066 	xrl	b,#0x80
+      000B0D 95 F0            [12] 1067 	subb	a,b
+      000B0F 50 2D            [24] 1068 	jnc	00101$
+                                   1069 ;	icp_n76e003.c:284: u8TransBuff[i]=ICP_Recv(0);
+      000B11 ED               [12] 1070 	mov	a,r5
+      000B12 24 D6            [12] 1071 	add	a,#_u8TransBuff
+      000B14 FB               [12] 1072 	mov	r3,a
+      000B15 E4               [12] 1073 	clr	a
+      000B16 34 00            [12] 1074 	addc	a,#(_u8TransBuff >> 8)
+      000B18 FC               [12] 1075 	mov	r4,a
+      000B19 75 82 00         [24] 1076 	mov	dpl,#0x00
+      000B1C C0 07            [24] 1077 	push	ar7
+      000B1E C0 06            [24] 1078 	push	ar6
+      000B20 C0 05            [24] 1079 	push	ar5
+      000B22 C0 04            [24] 1080 	push	ar4
+      000B24 C0 03            [24] 1081 	push	ar3
+      000B26 12 08 AE         [24] 1082 	lcall	_ICP_Recv
+      000B29 AA 82            [24] 1083 	mov	r2,dpl
+      000B2B D0 03            [24] 1084 	pop	ar3
+      000B2D D0 04            [24] 1085 	pop	ar4
+      000B2F D0 05            [24] 1086 	pop	ar5
+      000B31 D0 06            [24] 1087 	pop	ar6
+      000B33 D0 07            [24] 1088 	pop	ar7
+      000B35 8B 82            [24] 1089 	mov	dpl,r3
+      000B37 8C 83            [24] 1090 	mov	dph,r4
+      000B39 EA               [12] 1091 	mov	a,r2
+      000B3A F0               [24] 1092 	movx	@dptr,a
+                                   1093 ;	icp_n76e003.c:283: for(i=0; i<n-1; ++i) {
+      000B3B 0D               [12] 1094 	inc	r5
+      000B3C 80 B7            [24] 1095 	sjmp	00103$
+      000B3E                       1096 00101$:
+                                   1097 ;	icp_n76e003.c:287: u8TransBuff[n-1]=ICP_Recv(ack);
+      000B3E EF               [12] 1098 	mov	a,r7
+      000B3F 14               [12] 1099 	dec	a
+      000B40 24 D6            [12] 1100 	add	a,#_u8TransBuff
+      000B42 FD               [12] 1101 	mov	r5,a
+      000B43 E4               [12] 1102 	clr	a
+      000B44 34 00            [12] 1103 	addc	a,#(_u8TransBuff >> 8)
+      000B46 FF               [12] 1104 	mov	r7,a
+      000B47 8E 82            [24] 1105 	mov	dpl,r6
+      000B49 C0 07            [24] 1106 	push	ar7
+      000B4B C0 05            [24] 1107 	push	ar5
+      000B4D 12 08 AE         [24] 1108 	lcall	_ICP_Recv
+      000B50 AE 82            [24] 1109 	mov	r6,dpl
+      000B52 D0 05            [24] 1110 	pop	ar5
+      000B54 D0 07            [24] 1111 	pop	ar7
+      000B56 8D 82            [24] 1112 	mov	dpl,r5
+      000B58 8F 83            [24] 1113 	mov	dph,r7
+      000B5A EE               [12] 1114 	mov	a,r6
+      000B5B F0               [24] 1115 	movx	@dptr,a
+      000B5C 22               [24] 1116 	ret
+                                   1117 ;------------------------------------------------------------
+                                   1118 ;Allocation info for local variables in function 'ICP_SetWire'
+                                   1119 ;------------------------------------------------------------
+                                   1120 ;	icp_n76e003.c:292: void ICP_SetWire(void) {
+                                   1121 ;	-----------------------------------------
+                                   1122 ;	 function ICP_SetWire
+                                   1123 ;	-----------------------------------------
+      000B5D                       1124 _ICP_SetWire:
+                                   1125 ;	icp_n76e003.c:293: if(u8ReceiveBuff[2]) {
+      000B5D 90 00 42         [24] 1126 	mov	dptr,#(_u8ReceiveBuff + 0x0002)
+      000B60 E0               [24] 1127 	movx	a,@dptr
+      000B61 60 04            [24] 1128 	jz	00102$
+                                   1129 ;	icp_n76e003.c:294: NHC_MOSI=1;
+      000B63 D2 95            [12] 1130 	setb	_NHC_MOSI
+      000B65 80 02            [24] 1131 	sjmp	00103$
+      000B67                       1132 00102$:
+                                   1133 ;	icp_n76e003.c:296: NHC_MOSI=0;
+      000B67 C2 95            [12] 1134 	clr	_NHC_MOSI
+      000B69                       1135 00103$:
+                                   1136 ;	icp_n76e003.c:298: if(u8ReceiveBuff[3]) {
+      000B69 90 00 43         [24] 1137 	mov	dptr,#(_u8ReceiveBuff + 0x0003)
+      000B6C E0               [24] 1138 	movx	a,@dptr
+      000B6D 60 04            [24] 1139 	jz	00105$
+                                   1140 ;	icp_n76e003.c:299: NHC_SCK=1;
+      000B6F D2 97            [12] 1141 	setb	_NHC_SCK
+      000B71 80 02            [24] 1142 	sjmp	00106$
+      000B73                       1143 00105$:
+                                   1144 ;	icp_n76e003.c:301: NHC_SCK=0;
+      000B73 C2 97            [12] 1145 	clr	_NHC_SCK
+      000B75                       1146 00106$:
+                                   1147 ;	icp_n76e003.c:303: if(u8ReceiveBuff[4]) {
+      000B75 90 00 44         [24] 1148 	mov	dptr,#(_u8ReceiveBuff + 0x0004)
+      000B78 E0               [24] 1149 	movx	a,@dptr
+      000B79 60 03            [24] 1150 	jz	00108$
+                                   1151 ;	icp_n76e003.c:304: NHC_SS_PIN=1;
+      000B7B D2 B1            [12] 1152 	setb	_NHC_SS_PIN
+      000B7D 22               [24] 1153 	ret
+      000B7E                       1154 00108$:
+                                   1155 ;	icp_n76e003.c:306: NHC_SS_PIN=0;
+      000B7E C2 B1            [12] 1156 	clr	_NHC_SS_PIN
+      000B80 22               [24] 1157 	ret
+                                   1158 ;------------------------------------------------------------
+                                   1159 ;Allocation info for local variables in function 'ICP_Exit'
+                                   1160 ;------------------------------------------------------------
+                                   1161 ;	icp_n76e003.c:310: void ICP_Exit(void) {
+                                   1162 ;	-----------------------------------------
+                                   1163 ;	 function ICP_Exit
+                                   1164 ;	-----------------------------------------
+      000B81                       1165 _ICP_Exit:
+                                   1166 ;	icp_n76e003.c:314: P1_DIR_PU &= ~(1 << 5);
+      000B81 AF 93            [24] 1167 	mov	r7,_P1_DIR_PU
+      000B83 74 DF            [12] 1168 	mov	a,#0xDF
+      000B85 5F               [12] 1169 	anl	a,r7
+      000B86 F5 93            [12] 1170 	mov	_P1_DIR_PU,a
+                                   1171 ;	icp_n76e003.c:315: NHC_MOSI = 1;
+      000B88 D2 95            [12] 1172 	setb	_NHC_MOSI
+                                   1173 ;	icp_n76e003.c:319: P1_DIR_PU &= ~(1 << 7);
+      000B8A AF 93            [24] 1174 	mov	r7,_P1_DIR_PU
+      000B8C 74 7F            [12] 1175 	mov	a,#0x7F
+      000B8E 5F               [12] 1176 	anl	a,r7
+      000B8F F5 93            [12] 1177 	mov	_P1_DIR_PU,a
+                                   1178 ;	icp_n76e003.c:320: NHC_SCK = 1;
+      000B91 D2 97            [12] 1179 	setb	_NHC_SCK
+                                   1180 ;	icp_n76e003.c:324: P3_DIR_PU &= ~(1 << 1);
+      000B93 AF 97            [24] 1181 	mov	r7,_P3_DIR_PU
+      000B95 74 FD            [12] 1182 	mov	a,#0xFD
+      000B97 5F               [12] 1183 	anl	a,r7
+      000B98 F5 97            [12] 1184 	mov	_P3_DIR_PU,a
+                                   1185 ;	icp_n76e003.c:325: NHC_SS_PIN = 1;
+      000B9A D2 B1            [12] 1186 	setb	_NHC_SS_PIN
+      000B9C 22               [24] 1187 	ret
+                                   1188 ;------------------------------------------------------------
+                                   1189 ;Allocation info for local variables in function 'ICP_FlashWrite'
+                                   1190 ;------------------------------------------------------------
+                                   1191 ;u8Time                    Allocated to registers r6 
+                                   1192 ;n                         Allocated to registers r7 
+                                   1193 ;i                         Allocated to registers r5 
+                                   1194 ;j                         Allocated to registers r4 
+                                   1195 ;------------------------------------------------------------
+                                   1196 ;	icp_n76e003.c:328: void ICP_FlashWrite(void) {
+                                   1197 ;	-----------------------------------------
+                                   1198 ;	 function ICP_FlashWrite
+                                   1199 ;	-----------------------------------------
+      000B9D                       1200 _ICP_FlashWrite:
+                                   1201 ;	icp_n76e003.c:330: n=u8ReceiveBuff[2];
+      000B9D 90 00 42         [24] 1202 	mov	dptr,#(_u8ReceiveBuff + 0x0002)
+      000BA0 E0               [24] 1203 	movx	a,@dptr
+      000BA1 FF               [12] 1204 	mov	r7,a
+                                   1205 ;	icp_n76e003.c:331: u8Time=u8ReceiveBuff[3];
+      000BA2 90 00 43         [24] 1206 	mov	dptr,#(_u8ReceiveBuff + 0x0003)
+      000BA5 E0               [24] 1207 	movx	a,@dptr
+      000BA6 FE               [12] 1208 	mov	r6,a
+                                   1209 ;	icp_n76e003.c:332: for(i=0; i<n-1; ++i) {
+      000BA7 7D 00            [12] 1210 	mov	r5,#0x00
+      000BA9                       1211 00108$:
+      000BA9 8F 03            [24] 1212 	mov	ar3,r7
+      000BAB 7C 00            [12] 1213 	mov	r4,#0x00
+      000BAD 1B               [12] 1214 	dec	r3
+      000BAE BB FF 01         [24] 1215 	cjne	r3,#0xFF,00136$
+      000BB1 1C               [12] 1216 	dec	r4
+      000BB2                       1217 00136$:
+      000BB2 8D 01            [24] 1218 	mov	ar1,r5
+      000BB4 7A 00            [12] 1219 	mov	r2,#0x00
+      000BB6 C3               [12] 1220 	clr	c
+      000BB7 E9               [12] 1221 	mov	a,r1
+      000BB8 9B               [12] 1222 	subb	a,r3
+      000BB9 EA               [12] 1223 	mov	a,r2
+      000BBA 64 80            [12] 1224 	xrl	a,#0x80
+      000BBC 8C F0            [24] 1225 	mov	b,r4
+      000BBE 63 F0 80         [24] 1226 	xrl	b,#0x80
+      000BC1 95 F0            [12] 1227 	subb	a,b
+      000BC3 50 5F            [24] 1228 	jnc	00102$
+                                   1229 ;	icp_n76e003.c:333: ICP_Send(u8ReceiveBuff[i+4]);
+      000BC5 74 04            [12] 1230 	mov	a,#0x04
+      000BC7 2D               [12] 1231 	add	a,r5
+      000BC8 24 40            [12] 1232 	add	a,#_u8ReceiveBuff
+      000BCA F5 82            [12] 1233 	mov	dpl,a
+      000BCC E4               [12] 1234 	clr	a
+      000BCD 34 00            [12] 1235 	addc	a,#(_u8ReceiveBuff >> 8)
+      000BCF F5 83            [12] 1236 	mov	dph,a
+      000BD1 E0               [24] 1237 	movx	a,@dptr
+      000BD2 F5 82            [12] 1238 	mov	dpl,a
+      000BD4 C0 07            [24] 1239 	push	ar7
+      000BD6 C0 06            [24] 1240 	push	ar6
+      000BD8 C0 05            [24] 1241 	push	ar5
+      000BDA 12 08 76         [24] 1242 	lcall	_ICP_Send
+      000BDD D0 05            [24] 1243 	pop	ar5
+      000BDF D0 06            [24] 1244 	pop	ar6
+      000BE1 D0 07            [24] 1245 	pop	ar7
+                                   1246 ;	icp_n76e003.c:334: NHC_MOSI=0;
+      000BE3 C2 95            [12] 1247 	clr	_NHC_MOSI
+                                   1248 ;	icp_n76e003.c:336: for (j=0; j<u8Time; ++j)
+      000BE5 7C 00            [12] 1249 	mov	r4,#0x00
+      000BE7                       1250 00105$:
+      000BE7 C3               [12] 1251 	clr	c
+      000BE8 EC               [12] 1252 	mov	a,r4
+      000BE9 9E               [12] 1253 	subb	a,r6
+      000BEA 50 19            [24] 1254 	jnc	00101$
+                                   1255 ;	icp_n76e003.c:337: __delay_us(1);
+      000BEC 90 00 01         [24] 1256 	mov	dptr,#0x0001
+      000BEF C0 07            [24] 1257 	push	ar7
+      000BF1 C0 06            [24] 1258 	push	ar6
+      000BF3 C0 05            [24] 1259 	push	ar5
+      000BF5 C0 04            [24] 1260 	push	ar4
+      000BF7 12 00 C2         [24] 1261 	lcall	___delay_us
+      000BFA D0 04            [24] 1262 	pop	ar4
+      000BFC D0 05            [24] 1263 	pop	ar5
+      000BFE D0 06            [24] 1264 	pop	ar6
+      000C00 D0 07            [24] 1265 	pop	ar7
+                                   1266 ;	icp_n76e003.c:336: for (j=0; j<u8Time; ++j)
+      000C02 0C               [12] 1267 	inc	r4
+      000C03 80 E2            [24] 1268 	sjmp	00105$
+      000C05                       1269 00101$:
+                                   1270 ;	icp_n76e003.c:339: __delay_us(1);
+      000C05 90 00 01         [24] 1271 	mov	dptr,#0x0001
+      000C08 C0 07            [24] 1272 	push	ar7
+      000C0A C0 06            [24] 1273 	push	ar6
+      000C0C C0 05            [24] 1274 	push	ar5
+      000C0E 12 00 C2         [24] 1275 	lcall	___delay_us
+                                   1276 ;	icp_n76e003.c:340: NHC_SCK=1;
+      000C11 D2 97            [12] 1277 	setb	_NHC_SCK
+                                   1278 ;	icp_n76e003.c:342: __delay_us(1);
+      000C13 90 00 01         [24] 1279 	mov	dptr,#0x0001
+      000C16 12 00 C2         [24] 1280 	lcall	___delay_us
+      000C19 D0 05            [24] 1281 	pop	ar5
+      000C1B D0 06            [24] 1282 	pop	ar6
+      000C1D D0 07            [24] 1283 	pop	ar7
+                                   1284 ;	icp_n76e003.c:343: NHC_SCK=0;
+      000C1F C2 97            [12] 1285 	clr	_NHC_SCK
+                                   1286 ;	icp_n76e003.c:332: for(i=0; i<n-1; ++i) {
+      000C21 0D               [12] 1287 	inc	r5
+      000C22 80 85            [24] 1288 	sjmp	00108$
+      000C24                       1289 00102$:
+                                   1290 ;	icp_n76e003.c:345: ICP_Send(u8ReceiveBuff[i+4]);
+      000C24 74 04            [12] 1291 	mov	a,#0x04
+      000C26 2D               [12] 1292 	add	a,r5
+      000C27 24 40            [12] 1293 	add	a,#_u8ReceiveBuff
+      000C29 F5 82            [12] 1294 	mov	dpl,a
+      000C2B E4               [12] 1295 	clr	a
+      000C2C 34 00            [12] 1296 	addc	a,#(_u8ReceiveBuff >> 8)
+      000C2E F5 83            [12] 1297 	mov	dph,a
+      000C30 E0               [24] 1298 	movx	a,@dptr
+      000C31 F5 82            [12] 1299 	mov	dpl,a
+      000C33 C0 06            [24] 1300 	push	ar6
+      000C35 12 08 76         [24] 1301 	lcall	_ICP_Send
+      000C38 D0 06            [24] 1302 	pop	ar6
+                                   1303 ;	icp_n76e003.c:346: NHC_MOSI=0;
+      000C3A C2 95            [12] 1304 	clr	_NHC_MOSI
+                                   1305 ;	icp_n76e003.c:348: for (j=0; j<u8Time; ++j)
+      000C3C 7F 00            [12] 1306 	mov	r7,#0x00
+      000C3E                       1307 00111$:
+      000C3E C3               [12] 1308 	clr	c
+      000C3F EF               [12] 1309 	mov	a,r7
+      000C40 9E               [12] 1310 	subb	a,r6
+      000C41 50 11            [24] 1311 	jnc	00103$
+                                   1312 ;	icp_n76e003.c:349: __delay_us(1);
+      000C43 90 00 01         [24] 1313 	mov	dptr,#0x0001
+      000C46 C0 07            [24] 1314 	push	ar7
+      000C48 C0 06            [24] 1315 	push	ar6
+      000C4A 12 00 C2         [24] 1316 	lcall	___delay_us
+      000C4D D0 06            [24] 1317 	pop	ar6
+      000C4F D0 07            [24] 1318 	pop	ar7
+                                   1319 ;	icp_n76e003.c:348: for (j=0; j<u8Time; ++j)
+      000C51 0F               [12] 1320 	inc	r7
+      000C52 80 EA            [24] 1321 	sjmp	00111$
+      000C54                       1322 00103$:
+                                   1323 ;	icp_n76e003.c:350: NHC_MOSI=1;
+      000C54 D2 95            [12] 1324 	setb	_NHC_MOSI
+                                   1325 ;	icp_n76e003.c:352: __delay_us(1);
+      000C56 90 00 01         [24] 1326 	mov	dptr,#0x0001
+      000C59 12 00 C2         [24] 1327 	lcall	___delay_us
+                                   1328 ;	icp_n76e003.c:353: NHC_SCK=1;
+      000C5C D2 97            [12] 1329 	setb	_NHC_SCK
+                                   1330 ;	icp_n76e003.c:355: __delay_us(1);
+      000C5E 90 00 01         [24] 1331 	mov	dptr,#0x0001
+      000C61 12 00 C2         [24] 1332 	lcall	___delay_us
+                                   1333 ;	icp_n76e003.c:356: NHC_SCK=0;
+      000C64 C2 97            [12] 1334 	clr	_NHC_SCK
+      000C66 22               [24] 1335 	ret
+                                   1336 ;------------------------------------------------------------
+                                   1337 ;Allocation info for local variables in function 'ICP_FlashRead'
+                                   1338 ;------------------------------------------------------------
+                                   1339 ;	icp_n76e003.c:358: void ICP_FlashRead(void) {
+                                   1340 ;	-----------------------------------------
+                                   1341 ;	 function ICP_FlashRead
+                                   1342 ;	-----------------------------------------
+      000C67                       1343 _ICP_FlashRead:
+                                   1344 ;	icp_n76e003.c:360: }
+      000C67 22               [24] 1345 	ret
+                                   1346 	.area CSEG    (CODE)
+                                   1347 	.area CONST   (CODE)
+                                   1348 	.area XINIT   (CODE)
+                                   1349 	.area CABS    (ABS,CODE)
